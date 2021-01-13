@@ -1,0 +1,18 @@
+server:
+  port: 9999
+  servlet:
+    context-path: /lmx
+
+spring:
+  application:
+    name: user-server
+  profiles:
+    active:
+      - druid
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+logging:
+  level:
+    com.baomidou.example.mapper: debug
