@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 
 @SpringBootApplication
-@MapperScan("com.lj.cmml.cmmluser.mapper")
+@MapperScan("com.lmx.manysource.mapper")
 @ServletComponentScan
 public class ManysourceApplication {
 

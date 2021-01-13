@@ -5,39 +5,33 @@ spring:
       strict: false #设置严格模式,默认false不启动. 启动后在未匹配到指定数据源时候会抛出异常,不启动则使用默认数据源.
       datasource:
         master:
-          type: com.alibaba.druid.pool.DruidDataSource
-          driverClassName: ru.yandex.clickhouse.ClickHouseDriver
+          driver-class-name: ru.yandex.clickhouse.ClickHouseDriver
           url: jdbc:clickhouse://172.21.1.116:8123/eip_dm
           username: default
           password: 123456
-          initialSize: 10
-          maxActive: 100
-          minIdle: 10
-          maxWait: 6000
         slave_1:
           driver-class-name: com.mysql.cj.jdbc.Driver
           url: jdbc:mysql://172.16.1.145:3306/ona?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=GMT%2B8
           username: ona
           password: Ona@123456
-          type: com.alibaba.druid.pool.DruidDataSource
-          #   数据源其他配置
-          initialSize: 20
-          minIdle: 20
-          maxActive: 300
-          maxWait: 60000
-          timeBetweenConnectErrorMillis: 60000
-          timeBetweenEvictionRunsMillis: 60000
-          minEvictableIdleTimeMillis: 300000
-          validationQuery: SELECT 1
-          testOnBorrow: true
-          testOnReturn: false
-          testWhileIdle: true
-          poolPreparedStatements: true
-          defaultAutoCommit: true
-          keepAlive: true
-          validationQueryTimeout: 3
-          #   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
-          filters: stat,wall,log4j
-          maxPoolPreparedStatementPerConnectionSize: 20
-          connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      druid:
+        initialSize: 20
+        minIdle: 20
+        maxActive: 300
+        maxWait: 60000
+        timeBetweenConnectErrorMillis: 60000
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: SELECT 1
+        testOnBorrow: true
+        testOnReturn: false
+        testWhileIdle: true
+        poolPreparedStatements: true
+        defaultAutoCommit: true
+        keepAlive: true
+        validationQueryTimeout: 3
+        #   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+        filters: stat,wall,log4j
+        maxPoolPreparedStatementPerConnectionSize: 20
+        connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
 

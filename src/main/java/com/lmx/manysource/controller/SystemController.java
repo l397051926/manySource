@@ -22,4 +22,13 @@ public class SystemController {
         return "hello world";
     }
 
+
+    @GetMapping("/mysql")
+    public String mysql()
+    {
+        systemService.mysql();
+        return "hello world";
+    }
+
+
 }

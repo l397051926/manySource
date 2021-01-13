@@ -15,11 +15,17 @@ public class SystemService {
     @Autowired
     private DwsPrsnInfDiMapper dwsPrsnInfDiMapper;
 
-    @DS("ck")
     public void test() {
 
         Integer integer = dwsPrsnInfDiMapper.selectCount(null);
         System.out.println(integer);
 
+    }
+
+    @DS("slave_1")
+    public void mysql() {
+
+        Integer integer = dwsPrsnInfDiMapper.selectCount(null);
+        System.out.println(integer);
     }
 }
